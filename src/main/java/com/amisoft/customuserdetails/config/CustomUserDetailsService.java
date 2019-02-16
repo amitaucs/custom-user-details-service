@@ -1,5 +1,6 @@
 package com.amisoft.customuserdetails.config;
 
+import lombok.extern.log4j.Log4j2;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -10,6 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 //For simplicity added it as a Bean in main application to load user
 //@Service
+@Log4j2
 public class CustomUserDetailsService implements UserDetailsService {
 
 
