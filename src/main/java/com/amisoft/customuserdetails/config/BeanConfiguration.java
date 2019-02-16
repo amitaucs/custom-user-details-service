@@ -3,6 +3,7 @@ package com.amisoft.customuserdetails.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.DelegatingPasswordEncoder;
 import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,7 +16,7 @@ import java.util.Collections;
 public class BeanConfiguration {
 
 
-    @Bean
+   // @Bean
     PasswordEncoder oldPasswordEncoder(){
 
         String md5 = "MD5";
@@ -24,6 +25,11 @@ public class BeanConfiguration {
                 Collections.singletonMap(md5,new MessageDigestPasswordEncoder(md5)));
     }
 
+
+    @Bean
+    PasswordEncoder passwordEncoder(){
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    }
 
 
     @Bean
